@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <style>
+            :root {
+                font-family: sans-serif;
+            }
+            hr {
+                width: 100%;
+            }
+            .button {
+                border: 1px solid;
+                padding: 10px;
+                width: fit-content;
+                cursor: pointer;
+                display: inline-block;
+            }
+            .selected {
+                background-color: darkgray;
+                color: white;
+            }
+            .hidden {
+                display: none;
+            }
+            .test4-content {
+                border: 1px solid;
+                padding: 10px;
+                height: 200px;
+                width: 200px;
+                display: none;
+            }
+            .content-selected {
+                display: block;
+                width: 100%;
+            }
+        </style>
+        <style type="text/css-event">
+            @event click (#test1) toggle 'selected';
+            @event click (#test2-open) remove 'hidden' at (#test2-dialog);
+            @event click (#test2-close) add 'hidden' at (#test2-dialog);
+            @event click (.test3-radio) select 'selected';
+            @event click (.test4-radio) select 'selected';
+            @event click (.test4-radio) select 'content-selected' at (.test4-content);
+        </style>
+        <script src="../css-events.js"></script>
+    </head>
+    <body style="display: flex; flex-direction: column; gap: 20px">
+        click to toggle selected state.
+        <div id="test1" class="button">click</div>
+        <hr />
+
+        click to display dialog, and then close it.
+        <div id="test2-open" class="button">click</div>
+        <div
+            id="test2-dialog"
+            class="hidden"
+            style="
+                border: 1px solid;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+            "
+        >
+            <div
+                style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: black;
+                    opacity: 0.5;
+                "
+            ></div>
+            <div
+                style="
+                    position: relative;
+                    border: 1px solid;
+                    margin: 50px;
+                    padding: 50px;
+                    background: white;
+                "
+            >
+                <div style="margin-bottom: 50px">dialog</div>
+                <div id="test2-close" class="button">close</div>
+            </div>
+        </div>
+        <hr />
+
+        radio-style button selection.
+        <div style="display: flex; flex-direction: row; gap: 10px">
+            <div class="test3-radio button">1</div>
+            <div class="test3-radio button">2</div>
+            <div class="test3-radio button">3</div>
+            <div class="test3-radio button">4</div>
+            <div class="test3-radio button">5</div>
+        </div>
+        <hr />
+
+        tab selection.
+        <div style="width: fit-content">
+            <div style="display: flex; flex-direction: row; gap: 0px">
+                <div class="test4-radio button selected">one</div>
+                <div class="test4-radio button">two</div>
+                <div class="test4-radio button">three</div>
+                <div class="test4-radio button">four</div>
+                <div class="test4-radio button">five</div>
+            </div>
+            <div class="test4-content content-selected">content 1</div>
+            <div class="test4-content">content 2</div>
+            <div class="test4-content">content 3</div>
+            <div class="test4-content">content 4</div>
+            <div class="test4-content">content 5</div>
+        </div>
+    </body>
+</html>
