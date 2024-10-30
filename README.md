@@ -5,10 +5,10 @@ The simplest way to add interactivity to a web page.
 
 Consider for a moment how, when you abstract away HTML elements and their locations on a page, 
 the underlying interaction models for many components are similar. For example,
-a checkbox has the same interaction model as a toggle buttun -- click to change its
+a checkbox has the same interaction model as a toggle buttun - click to change its
 state. Likewise, radio buttons have the same interaction model as select lists.
 
-Now consider how the display of such a component can be easily configured to mirror its
+Now consider how the display of a component can be easily configured to mirror its
 state by adding or removing CSS classes on an HTML element. Add/remove a class
 on one element to update the display of a toggle, or add/remove a class on a set of elements
 to update the display of a select.
@@ -37,10 +37,10 @@ CSS events are declared in a style tag of type text/css-events. After all your e
 include the css-events.js script in your page.
 
 ```html
-    <style type="text/css-events">
+	<style type="text/css-events">
 		/* CSS events go here */
-    </style>
-    <script src="css-events.js"></script>
+	</style>
+	<script src="css-events.js"></script>
 ```
 
 ## Event declaration
@@ -48,13 +48,13 @@ include the css-events.js script in your page.
 ### Example 1: Toggle Button
 
 ```html
-    <style>
+	<style>
 		.button { /* base button styles go here */ }
 		.button.selected { /* select button styles go here */ }
-    </style>
-    <style type="text/css-events">
+	</style>
+	<style type="text/css-events">
 		@event click (.button) toggle 'selected';
-    </style>
+	</style>
 ```
 
 ### Example 2: Dialog
@@ -75,34 +75,35 @@ include the css-events.js script in your page.
 ### Example 3: Select list
 
 ```html
-    <style>
-        .option { /* ... */ }
-        .option.selected { /* ... */ }
-    </style>
-    <style type="text/css-events">
-        @event click (.option) select 'selected';
-    </style>
+	<style>
+		.option { /* ... */ }
+		.option.selected { /* ... */ }
+	</style>
+	<style type="text/css-events">
+		@event click (.option) select 'selected';
+	</style>
 ```
 
 ### Example 4: Tabbed content
 
 ```html
-    <style>
-        .tab-button { /* ... */ }
-        .tab-button.selected { /* ... */ }
-        .tab-content { /* ... */ }
-        .tab-content.visible { /* ... */ }
-    </style>
-    <style type="text/css-events">
-        @event click (.tab-button) select 'selected';
-        @event click (.tab-button) select 'visible' at (.tab-content);
-    </style>
+	<style>
+		.tab-button { /* ... */ }
+		.tab-button.selected { /* ... */ }
+		.tab-content { /* ... */ }
+		.tab-content.visible { /* ... */ }
+	</style>
+	<style type="text/css-events">
+		@event click (.tab-button) select 'selected';
+		@event click (.tab-button) select 'visible' at (.tab-content);
+	</style>
 ```
 
 ## Notes
 
 - Any event type is supported. For example:  
-  `@event dragover (.dropzone) add 'active';`
+  `@event dragenter (.dropzone) add 'active';`
+  `@event dragleave (.dropzone) remove 'active';`
   
 - Class names can contain multiple classes (useful for the utility-first CSS fans):  
   `@event click (.button) toggle 'bg-blue text-white';`
