@@ -1,5 +1,5 @@
 (() => {
-  const sheets = document.querySelectorAll("style[type='text/css-event']");
+  const sheets = document.querySelectorAll("style[type='text/css-events']");
   for (let sheet of sheets) {
     const rules = parse(sheet.textContent);
     const events = {};
