@@ -40,6 +40,7 @@
             @event click (.test3-radio) select 'selected';
             @event click (.test4-radio) select 'selected';
             @event click (.test4-radio) select 'content-selected' at (.test4-content);
+            @event click (.test5-link) toggle 'selected';
         </style>
         <script src="../css-events.js"></script>
     </head>
@@ -113,5 +114,10 @@
             <div class="test4-content">content 4</div>
             <div class="test4-content">content 5</div>
         </div>
+        <hr />
+        Stops event propogation.
+        <a class="test5-link button" href="https://www.google.com"
+            >click should only toggle, not navigate</a
+        >
     </body>
 </html>

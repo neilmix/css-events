@@ -12,6 +12,7 @@
       document.addEventListener(event, (e) => {
         for (let rule of events[event]) {
           if (e.target.matches(rule.targets)) {
+            e.preventDefault();
             execute(rule, e);
           }
         }
